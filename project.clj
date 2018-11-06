@@ -4,7 +4,9 @@
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [compojure "1.6.1"]
-                 [ring/ring-defaults "0.3.2"]]
+                 [ring/ring-defaults "0.3.2"]
+                 [mysql/mysql-connector-java "5.1.25"]
+                 [org.clojure/java.jdbc "0.7.8"]]
   :plugins [[lein-ring "0.12.4"]]
   :ring {:handler imago-api.handler/app}
   :profiles
