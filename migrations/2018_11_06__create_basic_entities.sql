@@ -1,7 +1,7 @@
 CREATE DATABASE imago;
 
 CREATE TABLE imago.User (
-  user_id             INTEGER PRIMARY KEY,
+  user_id             INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
   first_name          VARCHAR(20) NOT NULL,
   last_name           VARCHAR(100),
   username            VARCHAR(15) UNIQUE NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE imago.User (
 );
 
 CREATE TABLE imago.Post (
-  post_id             INTEGER PRIMARY KEY,
+  post_id             INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
   img_location        VARCHAR(300) NOT NULL,
   title               VARCHAR(100),
   description         VARCHAR(300),
@@ -22,7 +22,7 @@ CREATE TABLE imago.Post (
 );
 
 CREATE TABLE imago.PostInteraction (
-  post_interaction_id INTEGER PRIMARY KEY,
+  post_interaction_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
   type                ENUM('COMMENTARY', 'LIKE', 'SHARE') NOT NULL,
   post_id             INTEGER REFERENCES imago.Post(post_id) ON UPDATE CASCADE ON DELETE CASCADE,
   user_id             INTEGER REFERENCES imago.User(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
